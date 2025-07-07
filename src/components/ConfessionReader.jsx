@@ -166,14 +166,14 @@ export const ConfessionReader = ({ isRandom = false }) => {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => navigate('/')}
-              className="px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white rounded-xl transition-all duration-300 flex items-center gap-3 font-medium transform hover:scale-105 shadow-lg"
+              className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
             >
               <ArrowLeft className="w-5 h-5" />
               Go Back
             </button>
             <button
               onClick={handleAcceptReading}
-              className="px-8 py-4 bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white rounded-xl transition-all duration-300 flex items-center gap-3 font-medium transform hover:scale-105 shadow-2xl"
+              className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-600 to-magenta-600 hover:from-cyan-500 hover:to-magenta-500 text-white rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
             >
               <Eye className="w-5 h-5" />
               I'm Ready
@@ -188,7 +188,7 @@ export const ConfessionReader = ({ isRandom = false }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-10 relative overflow-hidden shadow-2xl backdrop-blur-sm">
+        <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 md:p-8 bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-800 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyan-400 via-magenta-400 to-cyan-400 animate-pulse"></div>
           
           {/* Ambient glow effect */}
@@ -214,7 +214,7 @@ export const ConfessionReader = ({ isRandom = false }) => {
             </div>
           </div>
           
-          <div className="flex justify-between items-center mb-6 relative z-10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6 sm:mt-8 w-full">
             <SentimentIndicator 
               sentiment={confession.sentiment} 
               score={confession.sentimentScore}
@@ -237,7 +237,7 @@ export const ConfessionReader = ({ isRandom = false }) => {
           {isComplete && (
             <div className="text-center relative z-10">
               <div className="bg-gradient-to-r from-gray-800 to-gray-700 rounded-xl p-6 mb-6 border border-gray-600">
-                <div className="flex items-center justify-center gap-2 mb-2">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
                   <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
                   <p className="text-gray-400 text-lg font-medium">
                     This whisper has been consumed by the void

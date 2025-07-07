@@ -53,18 +53,18 @@ export const ConfessionForm = ({ onSubmitted, onStatsUpdate }) => {
   
   if (submittedConfession) {
     return (
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8 mb-6 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+      <div className="w-full max-w-2xl mx-auto">
+        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-4 sm:p-6 md:p-8 mb-6 shadow-2xl backdrop-blur-sm relative overflow-hidden">
           {/* Animated success glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-magenta-400/10 to-cyan-400/10 animate-pulse"></div>
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-magenta-400 to-cyan-400"></div>
           
           <div className="text-center mb-6 relative z-10">
-            <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-magenta-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform animate-bounce">
-              <Send className="w-10 h-10 text-black" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-cyan-400 to-magenta-400 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg transform animate-bounce">
+              <Send className="w-8 h-8 sm:w-10 sm:h-10 text-black" />
             </div>
-            <h3 className="text-3xl font-bold text-white mb-3">Whisper Sent</h3>
-            <p className="text-gray-400 text-lg">Your secret has been cast into the void</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Whisper Sent</h3>
+            <p className="text-gray-400 text-base sm:text-lg">Your secret has been cast into the void</p>
             <div className="flex items-center justify-center gap-2 mt-4">
               <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
               <span className="text-sm text-gray-500">It will disappear after being read once</span>
@@ -85,16 +85,16 @@ export const ConfessionForm = ({ onSubmitted, onStatsUpdate }) => {
               <Sparkles className="w-4 h-4" />
               Shareable link (optional):
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <input
                 type="text"
                 value={`${window.location.origin}/whisper/${submittedConfession.uniqueSlug}`}
                 readOnly
-                className="flex-1 bg-gray-900 text-gray-300 px-4 py-3 rounded-lg border border-gray-600 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                className="flex-1 bg-gray-900 text-gray-300 px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-600 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
               />
               <button
                 onClick={handleCopy}
-                className="px-4 py-3 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white rounded-lg text-sm transition-all duration-300 flex items-center gap-2 transform hover:scale-105 shadow-lg"
+                className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white rounded-lg text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-105 shadow-lg"
               >
                 {copied ? (
                   <>
@@ -111,16 +111,16 @@ export const ConfessionForm = ({ onSubmitted, onStatsUpdate }) => {
             </div>
           </div>
           
-          <div className="flex gap-4 justify-center relative z-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10 w-full">
             <button
               onClick={resetForm}
-              className="px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white rounded-xl transition-all duration-300 font-medium transform hover:scale-105 shadow-lg"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white rounded-xl transition-all duration-300 font-medium transform hover:scale-105 shadow-lg text-sm sm:text-base"
             >
               Whisper Again
             </button>
             <button
               onClick={() => window.location.href = '/read-random'}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-600 via-magenta-600 to-cyan-600 hover:from-cyan-700 hover:via-magenta-700 hover:to-cyan-700 text-white rounded-xl transition-all duration-300 font-medium transform hover:scale-105 shadow-lg flex items-center gap-2"
+              className="w-full sm:w-auto px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-600 via-magenta-600 to-cyan-600 hover:from-cyan-700 hover:via-magenta-700 hover:to-cyan-700 text-white rounded-xl transition-all duration-300 font-medium transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               <Sparkles className="w-5 h-5" />
               Read Random
@@ -140,10 +140,10 @@ export const ConfessionForm = ({ onSubmitted, onStatsUpdate }) => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Share your secret... it will disappear after being read once."
-            className="relative w-full h-56 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent resize-none text-lg leading-relaxed shadow-2xl backdrop-blur-sm transition-all duration-300"
+            className="relative w-full h-48 sm:h-56 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent resize-none text-base sm:text-lg leading-relaxed shadow-2xl backdrop-blur-sm transition-all duration-300"
             maxLength={maxLength}
           />
-          <div className="absolute bottom-4 right-4 flex items-center gap-3">
+          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex items-center gap-2 sm:gap-3">
             <div className={`text-sm font-medium transition-colors duration-300 ${
               remainingChars < 50 ? 'text-yellow-400' : 
               remainingChars < 10 ? 'text-red-400' : 
@@ -166,23 +166,23 @@ export const ConfessionForm = ({ onSubmitted, onStatsUpdate }) => {
           </div>
         )}
         
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full">
           <button
             type="submit"
             disabled={!content.trim() || isSubmitting}
-            className="group px-10 py-4 bg-gradient-to-r from-cyan-600 via-magenta-600 to-cyan-600 hover:from-cyan-700 hover:via-magenta-700 hover:to-cyan-700 disabled:from-gray-600 disabled:to-gray-600 text-white rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl transform hover:scale-105 disabled:transform-none disabled:hover:scale-100 text-lg relative overflow-hidden"
+            className="group w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-cyan-600 via-magenta-600 to-cyan-600 hover:from-cyan-700 hover:via-magenta-700 hover:to-cyan-700 disabled:from-gray-600 disabled:to-gray-600 text-white rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 shadow-2xl transform hover:scale-105 disabled:transform-none disabled:hover:scale-100 text-base sm:text-lg relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             {isSubmitting ? (
               <>
                 <Loader2 className="w-6 h-6 animate-spin" />
-                <span>Whispering...</span>
+                <span className="text-sm sm:text-base">Whispering...</span>
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
               </>
             ) : (
               <>
                 <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                <span>Whisper</span>
+                <span className="text-sm sm:text-base">Whisper</span>
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               </>
             )}
